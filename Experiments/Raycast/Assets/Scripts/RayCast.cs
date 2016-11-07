@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class RayCast : MonoBehaviour {
@@ -9,15 +9,16 @@ public class RayCast : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		Debug.DrawRay(Camera.main.transform.position,Camera.main.transform.TransformDirection(Vector3.forward));
-		Vector3 fwd = Camera.main.transform.TransformDirection(Vector3.forward);
-
-		if (Physics.Raycast(Camera.main.transform.position, fwd, 500)){
-			print("There is something in front of the camera!");
+		RaycastHit hit;
+		Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5f, 0));
+		if(Physics.Raycast(ray, out hit))
+		{
+			Debug.Log(hit.collider.tag);
 		}
 		else
 		{
-			print("Move along people, nothing to see here!");
+			Debug.Log("Move along people, nothing to see here!");
 		}
 	}
 }
+
