@@ -4,40 +4,59 @@ using System.Collections;
 public class Movement : MonoBehaviour
 {
     public float Rotation;
-    public int movementspeed = 20;
-    //public float Acceleration = 1;
     public float acceleration;
+	public float speed;
     public float maxSpeed;
-    private float setSpeed;
+
     public bool isMoving = false;
     public bool isReversing = false;
-    private bool forward = false;
-    private bool backward = false;
+    public bool forward = false;
+    public bool backward = false;
 
     // Use this for initialization
     void Start()
     {
-        setSpeed = acceleration;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
-   
-        
-
-        if (Input.GetButton("Up"))
+		if (speed > 0)
+		{
+			forward = true;
+			backward = false;
+		}
+		else if (speed == 0)
+		{
+			forward = false;
+			backward = false;
+		}
+		else if(speed < 0)
+		{
+			forward = false;
+			backward = true;
+		}
+		if(isMoving == false && isReversing == false)
+		{
+			if(speed < 0.02 && speed > -0.02)
+			{
+				speed = speed/2;
+			}
+			if(speed < 0.0001 && speed > -0.0001)
+			{
+				speed = 0;
+			}
+		}
+			
+		if (Input.GetButton("Up"))
         {
             //determines forward movement
             isMoving = true;
-            forward = true;
-            backward = false;
-            transform.Translate(Vector3.forward * Time.deltaTime * acceleration);
-            if (acceleration < maxSpeed)
+			transform.Translate(Vector3.forward * Time.deltaTime * speed * acceleration);
+			if (speed < maxSpeed)
             {
-                acceleration += 0.5f;
+				speed += 0.5f *Time.deltaTime;
             }
             
         } else
@@ -46,23 +65,11 @@ public class Movement : MonoBehaviour
         }
         if (isMoving == false && forward == true)
         {
-            //slow down the acceleration so that the ship can move in the opposite direction 
-            transform.Translate(Vector3.forward * Time.deltaTime * acceleration);
-            if (acceleration > 0)
+			//slow down the speed so that the ship can move in the opposite direction 
+			transform.Translate(Vector3.forward * Time.deltaTime * speed * acceleration);
+			if (speed > 0.02)
             {
-                acceleration -= 1;
-            }
-
-            if (acceleration != 0)
-            {
-                if (Input.GetButton("Left"))
-                {
-                    transform.Rotate(0.0f * Time.deltaTime, -Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
-                }
-                if (Input.GetButton("Right"))
-                {
-                    transform.Rotate(0.0f * Time.deltaTime, Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
-                }
+				speed -= 1 * Time.deltaTime;
             }
 
         }
@@ -71,12 +78,10 @@ public class Movement : MonoBehaviour
         {
             //backward movement
             isReversing = true;
-            backward = true;
-            forward = false;
-            transform.Translate(Vector3.forward * Time.deltaTime * acceleration);
-            if (acceleration > -maxSpeed)
+			transform.Translate(Vector3.forward * Time.deltaTime * speed * acceleration);
+			if (speed > -maxSpeed)
             {
-                acceleration -= 0.5f;
+				speed -= 0.5f * Time.deltaTime;
             }
 
         }
@@ -84,43 +89,49 @@ public class Movement : MonoBehaviour
         {
             isReversing = false;
         }
+
+
         if (isReversing == false && backward == true)
         {
-            //slow down the acceleration so that the car can move in the opposite direction 
-            transform.Translate(Vector3.forward * Time.deltaTime * acceleration);
+			//slow down the speed so that the car can move in the opposite direction 
+			transform.Translate(Vector3.forward * Time.deltaTime * speed * acceleration);
 
-            if (acceleration < 0)
+			if (speed < -0.02)
             {
-                acceleration += 1;
+				speed += 1 * Time.deltaTime;
             }
         }
         
-        if (acceleration != 0)
+		if (speed != 0)
         {
             if (forward == true)
             {
                 if (Input.GetButton("Left"))
                 {
-                    transform.Rotate(0.0f * Time.deltaTime, -Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
+                    transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
                 }
                 if (Input.GetButton("Right"))
                 {
-                    transform.Rotate(0.0f * Time.deltaTime, Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
+                    transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
                 }
             }
             if (backward == true)
             {
                 if (Input.GetButton("Right"))
                 {
-                    transform.Rotate(0.0f * Time.deltaTime, -Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
+                    transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
                 }
                 if (Input.GetButton("Left"))
                 {
-                    transform.Rotate(0.0f * Time.deltaTime, Rotation * Time.deltaTime, 0.0f * Time.deltaTime);
+                    transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
                 }
             }
         }
-
+		if (Input.GetButton("Up") && Input.GetButton("Down"))
+		{
+			isReversing = false;
+			isMoving = false;
+		}
     }
 
 }
