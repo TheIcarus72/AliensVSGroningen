@@ -10,6 +10,8 @@ public class ReplaceBuilding : MonoBehaviour {
 	public GameObject box;
 	public GameObject capsule;
 	public GameObject ball;
+	public Scalers scalers;
+
 	// Use this for initialization
 	void Start () {
 		menu.SetActive(false);
@@ -39,7 +41,6 @@ public class ReplaceBuilding : MonoBehaviour {
 					capsuleButton.SetActive(true);
 					ballButton.SetActive(false);
 				}
-				Debug.Log(RayCast.target.name);
 			}
 		}
 	}
@@ -51,6 +52,8 @@ public class ReplaceBuilding : MonoBehaviour {
 		boxSpawn.name = "Cube";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		scalers.EnableScalers();
+
 	}
 	public void makeCapsule()
 	{
@@ -60,6 +63,7 @@ public class ReplaceBuilding : MonoBehaviour {
 		capsuleSpawn.name = "Capsule";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		scalers.EnableScalers();
 	}
 	public void makeBall()
 	{
@@ -69,5 +73,6 @@ public class ReplaceBuilding : MonoBehaviour {
 		ballSpawn.name = "Sphere";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		scalers.EnableScalers();
 	}
 }
