@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Groningen.CSharp.Plugins", "Project Groningen.CSharp.Plugins.csproj", "{6AE97A60-802E-B560-B2F0-734488AC18F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Groningen.CSharp", "Project Groningen.CSharp.csproj", "{8099B6D1-97C0-8E23-F557-E339168A8437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project Groningen.CSharp.Editor", "Project Groningen.CSharp.Editor.csproj", "{E54CB34B-AD43-35A6-E83B-501BD64F8C40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AE97A60-802E-B560-B2F0-734488AC18F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE97A60-802E-B560-B2F0-734488AC18F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE97A60-802E-B560-B2F0-734488AC18F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE97A60-802E-B560-B2F0-734488AC18F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8099B6D1-97C0-8E23-F557-E339168A8437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8099B6D1-97C0-8E23-F557-E339168A8437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8099B6D1-97C0-8E23-F557-E339168A8437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8099B6D1-97C0-8E23-F557-E339168A8437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54CB34B-AD43-35A6-E83B-501BD64F8C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54CB34B-AD43-35A6-E83B-501BD64F8C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54CB34B-AD43-35A6-E83B-501BD64F8C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54CB34B-AD43-35A6-E83B-501BD64F8C40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
