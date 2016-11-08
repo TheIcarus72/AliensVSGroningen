@@ -103,28 +103,49 @@ public class Movement : MonoBehaviour
         
 		if (speed != 0)
         {
-            if (forward == true)
+			if (forward == true && speed < 1)
             {
                 if (Input.GetButton("Left"))
                 {
-                    transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
+                    transform.Rotate(0.0f, -Rotation * Time.deltaTime * speed, 0.0f);
                 }
                 if (Input.GetButton("Right"))
                 {
-                    transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
+                    transform.Rotate(0.0f, Rotation * Time.deltaTime * speed, 0.0f);
                 }
-            }
-            if (backward == true)
+			} else if (forward == true)
+			{
+				if (Input.GetButton("Left"))
+				{
+					transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
+				}
+				if (Input.GetButton("Right"))
+				{
+					transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
+				}
+			}
+			if (backward == true && speed > -1)
             {
                 if (Input.GetButton("Right"))
                 {
-                    transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
+                    transform.Rotate(0.0f, -Rotation * Time.deltaTime * speed, 0.0f);
                 }
                 if (Input.GetButton("Left"))
                 {
-                    transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
+                    transform.Rotate(0.0f, Rotation * Time.deltaTime * speed, 0.0f);
                 }
             }
+			else if (backward == true)
+			{
+				if (Input.GetButton("Right"))
+				{
+					transform.Rotate(0.0f, -Rotation * Time.deltaTime, 0.0f);
+				}
+				if (Input.GetButton("Left"))
+				{
+					transform.Rotate(0.0f, Rotation * Time.deltaTime, 0.0f);
+				}
+			}
         }
 		if (Input.GetButton("Up") && Input.GetButton("Down"))
 		{
