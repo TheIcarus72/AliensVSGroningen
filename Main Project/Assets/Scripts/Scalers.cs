@@ -18,11 +18,11 @@ public class Scalers : MonoBehaviour {
 				if(child.GetComponent<Scale>().scaled == false)
 				{
 					unscaled = true;
-					Debug.Log("this instance is not ready");
+					//Debug.Log("this instance is not ready");
 				}
 				else
 				{
-					Debug.Log("this instance is ready");
+					//Debug.Log("this instance is ready");
 				}
 			}
 			if (unscaled == false) {
@@ -48,6 +48,6 @@ public class Scalers : MonoBehaviour {
 			child.gameObject.SetActive(true);
 		}
 		scalersDisabled = false;
-		Debug.Log("scalers enabled");
+		//Debug.Log("scalers enabled");
 	}
 }

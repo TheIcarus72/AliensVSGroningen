@@ -4,12 +4,12 @@ using System.Collections;
 public class ReplaceBuilding : MonoBehaviour {
 	static public bool selectingBuilding = false;
 	public GameObject menu;
-	public GameObject boxButton;
-	public GameObject capsuleButton;
-	public GameObject ballButton;
-	public GameObject box;
-	public GameObject capsule;
-	public GameObject ball;
+	public GameObject factoryButton;
+	public GameObject restaurantButton;
+	public GameObject supermarketButton;
+	public GameObject factory;
+	public GameObject restaurant;
+	public GameObject supermarket;
 	public Scalers scalers;
 
 	// Use this for initialization
@@ -21,56 +21,59 @@ public class ReplaceBuilding : MonoBehaviour {
 	void Update () {
 		if(RayCast.target != null)
 		{
-			if(Input.GetButtonDown("Space") && RayCast.target.tag == "Building")
+			if(Input.GetButtonDown("Space"))
 			{
-				selectingBuilding = true;
-				menu.SetActive(true);
-				if(RayCast.target.name == "Cube")
-				{
-					boxButton.SetActive(false);
-					capsuleButton.SetActive(true);
-					ballButton.SetActive(true);
-				} else if (RayCast.target.name == "Capsule")
-				{
-					boxButton.SetActive(true);
-					capsuleButton.SetActive(false);
-					ballButton.SetActive(true);
-				} else if (RayCast.target.name == "Sphere")
-				{
-					boxButton.SetActive(true);
-					capsuleButton.SetActive(true);
-					ballButton.SetActive(false);
+				if (RayCast.target.tag == "Plot" || RayCast.target.tag == "Building") {
+					selectingBuilding = true;
+					menu.SetActive (true);
+					if (RayCast.target.name == "Factory") {
+						factoryButton.SetActive (false);
+						restaurantButton.SetActive (true);
+						supermarketButton.SetActive (true);
+					} else if (RayCast.target.name == "Restaurant") {
+						factoryButton.SetActive (true);
+						restaurantButton.SetActive (false);
+						supermarketButton.SetActive (true);
+					} else if (RayCast.target.name == "Supermarket") {
+						factoryButton.SetActive (true);
+						restaurantButton.SetActive (true);
+						supermarketButton.SetActive (false);
+					} else {
+						factoryButton.SetActive (true);
+						restaurantButton.SetActive (true);
+						supermarketButton.SetActive (true);
+					}
 				}
 			}
 		}
 	}
-	public void makeBox()
+	public void makeFactory()
 	{
 		Vector3 buildingPos = RayCast.target.transform.position;
 		Destroy(RayCast.target);
-		GameObject boxSpawn = (GameObject)Instantiate(box,buildingPos,Quaternion.identity);
-		boxSpawn.name = "Cube";
+		GameObject factorySpawn = (GameObject)Instantiate(factory,buildingPos,RayCast.target.transform.rotation);
+		factorySpawn.name = "Factory";
 		selectingBuilding = false;
 		menu.SetActive(false);
 		scalers.EnableScalers();
 
 	}
-	public void makeCapsule()
+	public void makeRestaurant()
 	{
 		Vector3 buildingPos = RayCast.target.transform.position;
 		Destroy(RayCast.target);
-		GameObject capsuleSpawn = (GameObject)Instantiate(capsule,buildingPos,Quaternion.identity);
-		capsuleSpawn.name = "Capsule";
+		GameObject restaurantSpawn = (GameObject)Instantiate(restaurant,buildingPos,RayCast.target.transform.rotation);
+		restaurantSpawn.name = "Restaurant";
 		selectingBuilding = false;
 		menu.SetActive(false);
 		scalers.EnableScalers();
 	}
-	public void makeBall()
+	public void makeSupermarket()
 	{
 		Vector3 buildingPos = RayCast.target.transform.position;
 		Destroy(RayCast.target);
-		GameObject ballSpawn = (GameObject)Instantiate(ball,buildingPos,Quaternion.identity);
-		ballSpawn.name = "Sphere";
+		GameObject supermarketSpawn = (GameObject)Instantiate(supermarket,buildingPos,RayCast.target.transform.rotation);
+		supermarketSpawn.name = "Supermarket";
 		selectingBuilding = false;
 		menu.SetActive(false);
 		scalers.EnableScalers();

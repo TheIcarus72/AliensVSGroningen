@@ -8,13 +8,17 @@ public class Scale : MonoBehaviour {
 
 	public Scalers scalers;
 	public bool scaled = false;
-
 	void OnTriggerEnter(Collider col)
 	{
 		//Debug.Log(col.gameObject.tag);
 		if(col.gameObject.tag == "Building")
 		{
-			col.gameObject.transform.localScale = new Vector3(scaleX,scaleY,scaleZ);
+			if (col.gameObject.name == "Factory" || col.gameObject.name == "Restaurant" || col.gameObject.name == "Supermarket") {
+				col.gameObject.transform.localScale = new Vector3 ((scaleX * 3),(scaleY * 3),(scaleZ * 3));
+				scaled = true;
+			}
+		}
+		if (col.gameObject.tag == "Plot") {
 			scaled = true;
 		}
 	}

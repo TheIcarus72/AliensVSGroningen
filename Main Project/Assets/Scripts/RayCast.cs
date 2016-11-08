@@ -16,6 +16,7 @@ public class RayCast : MonoBehaviour {
 			if(ReplaceBuilding.selectingBuilding == false)
 			{
 				target = hit.collider.gameObject;
+				Debug.Log (target);
 				//Debug.Log(hit.collider.gameObject.tag);
 			}
 		}

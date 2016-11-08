@@ -90,7 +90,6 @@ public class Movement : MonoBehaviour
             isReversing = false;
         }
 
-
         if (isReversing == false && backward == true)
         {
 			//slow down the speed so that the car can move in the opposite direction 
