@@ -13,8 +13,11 @@ public class RayCast : MonoBehaviour {
 		Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5f, 0));
 		if(Physics.Raycast(ray, out hit))
 		{
-			target = hit.collider.gameObject;
-			//Debug.Log(hit.collider.gameObject.tag);
+			if(ReplaceBuilding.selectingBuilding == false)
+			{
+				target = hit.collider.gameObject;
+				//Debug.Log(hit.collider.gameObject.tag);
+			}
 		}
 		else
 		{
