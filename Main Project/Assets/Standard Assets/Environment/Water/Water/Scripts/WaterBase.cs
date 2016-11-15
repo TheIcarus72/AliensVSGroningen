@@ -37,7 +37,7 @@ namespace UnityStandardAssets.Water
             // as the shader will render everything as transparent if the depth texture is not valid.
             if (!SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.Depth))
             {
-                edgeBlend = false;
+                edgeBlend = true;
             }
 
             if (edgeBlend)
