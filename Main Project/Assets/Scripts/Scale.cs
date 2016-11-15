@@ -13,8 +13,8 @@ public class Scale : MonoBehaviour {
 		//Debug.Log(col.gameObject.tag);
 		if(col.gameObject.tag == "Building")
 		{
-			if (col.gameObject.name == "Factory" || col.gameObject.name == "Restaurant" || col.gameObject.name == "Supermarket") {
-				col.gameObject.transform.localScale = new Vector3 ((scaleX * 3),(scaleY * 3),(scaleZ * 3));
+			if (col.gameObject.name == "Turbines" || col.gameObject.name == "Parking_Lot" || col.gameObject.name == "Shopping_Mall") {
+				col.gameObject.transform.localScale = new Vector3 (scaleX,scaleY,scaleZ);
 				scaled = true;
 			}
 		}
