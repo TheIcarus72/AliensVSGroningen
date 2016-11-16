@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+// script that checks for collision with replace-able buildings and then rescales the replace-able building to the proper size
+// (which is set on the collider objects on which this script is attached) (see Scalers/... in the hierarchy)
+
+//______________________________________________________________//
+using UnityEngine;
 using System.Collections;
 
 public class Scale : MonoBehaviour {

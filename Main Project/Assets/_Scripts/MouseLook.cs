@@ -1,3 +1,10 @@
+//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+// standard asset script for rotating the camera while testing the game without headtracking
+
+//______________________________________________________________//
 using UnityEngine;
 using System.Collections;
 

@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+// this script checks for replace-able buildings on the center of the camera (through the raycast)
+// if the player then hits space it will open up the menu based on which building the camera was facing
+// makeTurbines(), makeParkingLot(), makeShoppingMall(), don't get activated through this script but instead through the UI buttons with onClick() functions
+
+//______________________________________________________________//
+using UnityEngine;
 using System.Collections;
 
 public class ReplaceBuilding : MonoBehaviour {

@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+//this script checks the status of all the Scale script instances and then hides them
+//this was needed to get the RayCast to not collide with the Scale colliders as this interfered with colliding with the actual replace-able buildings...
+
+//______________________________________________________________//
+using UnityEngine;
 using System.Collections;
 
 public class Scalers : MonoBehaviour {

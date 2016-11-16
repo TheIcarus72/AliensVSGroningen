@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+// script which controlls the movement of the ship
+
+//______________________________________________________________//
+using UnityEngine;
 using System.Collections;
 
 public class Movement : MonoBehaviour

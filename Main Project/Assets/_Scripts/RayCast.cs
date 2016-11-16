@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿//______________________________________________________________//
+//___SCRIPT_EXPLANATION_________________________________________//
+//______________________________________________________________//
+
+// continiously checks for the first collision the raycast makes
+// this is used in conjunction with the ReplaceBuilding script to check for replace-able buildings
+
+//______________________________________________________________//
+using UnityEngine;
 using System.Collections;
 
 public class RayCast : MonoBehaviour {
