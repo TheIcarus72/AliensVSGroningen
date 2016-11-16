@@ -4,6 +4,7 @@ using System.Collections;
 public class ReplaceBuilding : MonoBehaviour {
 	static public bool selectingBuilding = false;
 	public GameObject menu;
+	public GameObject UI3D;
 	public GameObject turbinesButton;
 	public GameObject parkinglotButton;
 	public GameObject shoppingmallButton;
@@ -15,6 +16,7 @@ public class ReplaceBuilding : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		menu.SetActive(false);
+		UI3D.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class ReplaceBuilding : MonoBehaviour {
 				if (RayCast.target.tag == "Plot" || RayCast.target.tag == "Building") {
 					selectingBuilding = true;
 					menu.SetActive (true);
+					UI3D.SetActive(true);
 					if (RayCast.target.name == "Turbines") {
 						turbinesButton.SetActive (false);
 						parkinglotButton.SetActive (true);
@@ -55,6 +58,7 @@ public class ReplaceBuilding : MonoBehaviour {
 		factorySpawn.name = "Turbines";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		UI3D.SetActive(false);
 		scalers.EnableScalers();
 
 	}
@@ -66,6 +70,7 @@ public class ReplaceBuilding : MonoBehaviour {
 		restaurantSpawn.name = "Parking_Lot";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		UI3D.SetActive(false);
 		scalers.EnableScalers();
 	}
 	public void makeShoppingMall()
@@ -76,6 +81,7 @@ public class ReplaceBuilding : MonoBehaviour {
 		supermarketSpawn.name = "Shopping_Mall";
 		selectingBuilding = false;
 		menu.SetActive(false);
+		UI3D.SetActive(false);
 		scalers.EnableScalers();
 	}
 }
